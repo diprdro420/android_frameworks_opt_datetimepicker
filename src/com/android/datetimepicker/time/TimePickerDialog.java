@@ -316,6 +316,7 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
         mTimePicker.setTheme(getActivity().getApplicationContext(), mThemeDark);
         // Prepare some colors to use.
         int white = res.getColor(R.color.white);
+		int whiteBg = res.getColor(R.color.white_bg);
         int circleBackground = res.getColor(R.color.circle_background);
         int line = res.getColor(R.color.line_background);
         int timeDisplay = res.getColor(R.color.numbers_text_color);
@@ -329,13 +330,13 @@ public class TimePickerDialog extends DialogFragment implements OnValueSelectedL
         int darkDoneBackground = R.drawable.done_background_color_dark;
 
         // Set the colors for each view based on the theme.
-        view.findViewById(R.id.time_display_background).setBackgroundColor(mThemeDark? darkGray : white);
-        view.findViewById(R.id.time_display).setBackgroundColor(mThemeDark? darkGray : white);
+        view.findViewById(R.id.time_display_background).setBackgroundColor(mThemeDark? darkGray : circleBackground);
+        view.findViewById(R.id.time_display).setBackgroundColor(mThemeDark? darkGray : circleBackground);
         ((TextView) view.findViewById(R.id.separator)).setTextColor(mThemeDark? white : timeDisplay);
         ((TextView) view.findViewById(R.id.ampm_label)).setTextColor(mThemeDark? white : timeDisplay);
         view.findViewById(R.id.line).setBackgroundColor(mThemeDark? darkLine : line);
         mDoneButton.setTextColor(mThemeDark? darkDoneTextColor : doneTextColor);
-        mTimePicker.setBackgroundColor(mThemeDark? lightGray : circleBackground);
+        mTimePicker.setBackgroundColor(mThemeDark? lightGray : whiteBg);
         mDoneButton.setBackgroundResource(mThemeDark? darkDoneBackground : doneBackground);
         return view;
     }
